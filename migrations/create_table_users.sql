@@ -1,6 +1,5 @@
 create table users(
-    id int NOT NULL AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY,
     name varchar(100) NOT NULL,
-    email varchar(100) NOT NULL,
-    PRIMARY KEY (id)
+    email varchar(100) NOT NULL
 )
