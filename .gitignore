@@ -1,3 +1,4 @@
 .phpintel
 /vendor
 .env
+.idea
