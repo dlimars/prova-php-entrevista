@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="Route.php" method="post">
+    <label>Nome:</label><br>
+    <input type="text" id="name" name="name" value={{user.name}}><br>
+    <label>Email:</label><br>
+    <input type="text" id="email" name="email" value={{user.email}}><br><br>
+    <input type="hidden" id="id" name="id" value={{user.id}}><br><br>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+        <i class="material-icons right">send</i>
+    </button>
+</form>
+</body>
+</html>

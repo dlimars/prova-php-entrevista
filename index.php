@@ -1,34 +1,14 @@
 <?php
 
 require 'connection.php';
+require 'routes/Api.php';
+require 'vendor/autoload.php';
+
+$template = file_get_contents('resources/views/template/template.html');
+echo $template;
 
 $connection = new Connection();
-
-$users = $connection->query("SELECT * FROM users");
-
-echo "<table border='1'>
-
-    <tr>
-        <th>ID</th>    
-        <th>Nome</th>    
-        <th>Email</th>
-        <th>Ação</th>    
-    </tr>
-";
-
-foreach($users as $user) {
-
-    echo sprintf("<tr>
-                      <td>%s</td>
-                      <td>%s</td>
-                      <td>%s</td>
-                      <td>
-                           <a href='#'>Editar</a>
-                           <a href='#'>Excluir</a>
-                      </td>
-                   </tr>",
-        $user->id, $user->name, $user->email);
-
-}
-
-echo "</table>";
+$routes = new Api();
+$request_uri = $_SERVER['REQUEST_URI'];
+$request_verb = $_SERVER['REQUEST_METHOD'];
+$routes->load_routes($request_uri, $request_verb);

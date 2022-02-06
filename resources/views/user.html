@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+        <th>Vincular Cores</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for user in users %}
+    <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td><a href={{url}}/edit/{{user.id}} class="waves-effect waves-light btn"><i class="material-icons left">edit</i></a></td>
+        <td><a class="waves-effect waves-light btn"><i class="material-icons left">clear</i></a></td>
+        <td><a class="waves-effect waves-light btn"><i class="material-icons left">color_lens</i></a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table></body>
+</html>
