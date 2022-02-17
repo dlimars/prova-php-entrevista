@@ -1,6 +1,7 @@
 <?php
 
-class Connection {
+class Connection
+{
 
     private $databaseFile;
     private $connection;
@@ -23,10 +24,17 @@ class Connection {
 
     public function query($query)
     {
-        $result      = $this->getConnection()->query($query);
+        $result = $this->getConnection()->query($query);
 
         $result->setFetchMode(PDO::FETCH_INTO, new stdClass);
 
         return $result;
     }
+
+    public function query_run($query)
+    {
+        var_dump($query);
+        $this->getConnection()->exec($query);
+    }
+
 }
