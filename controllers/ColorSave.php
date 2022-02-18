@@ -14,4 +14,4 @@ if(null !==$_POST['acao'] && $_POST['acao']=='update'){
 }
 
 Header( "HTTP/1.1 301 Moved Permanently");
-Header( "Location: http://localhost:7070/prova-php-entrevista/?pg=lista_cores&r=sucesso");
+Header( "Location: http://localhost:7070/?pg=lista_cores&r=sucesso");

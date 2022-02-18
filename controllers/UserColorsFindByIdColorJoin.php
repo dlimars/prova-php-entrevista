@@ -13,6 +13,6 @@ if(isset($_GET['id'])){
 
 	if(!$cor){	
 		$_color = new Color($connection);
-		$cor = $_color->findById($id)->fetch();
+		$cor = $_color->findById($id);
 	}
 }

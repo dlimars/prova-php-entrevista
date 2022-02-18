@@ -1,6 +1,6 @@
 <?php if(isset($_GET['r']) && $_GET['r']=='sucesso'){?>
 <div class="alert alert-success" role="alert">
-  This is a success alert—check it out!
+  Registrado com sucesso!
 </div>
 <?php } ?>
 
@@ -23,7 +23,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nome</th>
-          <th scope="col" class="text-center">Ações</th>
+          <th scope="col" class="text-right"></th>
         </tr>
       </thead>
       <tbody>
@@ -31,9 +31,8 @@
           <tr>
             <th scope="row"><?php echo $cor->id;?></th>
             <td><?php echo $cor->name;?></td>
-            <td class="text-center">
+            <td class="text-right">
               <a href="?pg=update_cor&id=<?php echo $cor->id;?>" class="btn btn-primary">Editar</a>  
-              <!--<a href="controllers/ColorDelete.php?id=<?php echo $cor->id;?>" class="btn btn-danger">Deletar</a> -->
               <a href="?pg=visualizar_cor&id=<?php echo $cor->id;?>" class="btn btn-warning">visualizar</a>
             </td>
           </tr>

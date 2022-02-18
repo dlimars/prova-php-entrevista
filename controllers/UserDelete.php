@@ -9,4 +9,4 @@ $_u = new Users($connection);
 $_u->delete($_GET['id']);
 
 Header( "HTTP/1.1 301 Moved Permanently");
-Header( "Location: http://localhost:7070/prova-php-entrevista/?pg=lista_usuarios&r=sucesso");
+Header( "Location: http://localhost:7070/?pg=lista_usuarios&r=sucesso");
