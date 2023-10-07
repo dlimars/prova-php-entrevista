@@ -1,10 +1,8 @@
 <?php
 
-require 'connection.php';
+require_once("./inc/common.php");
 
-$connection = new Connection();
-
-$users = $connection->query("SELECT * FROM users");
+//$users = $connection->query("SELECT * FROM users");
 
 echo "<table border='1'>
 
@@ -16,9 +14,10 @@ echo "<table border='1'>
     </tr>
 ";
 
-foreach($users as $user) {
+foreach ($users as $user) {
 
-    echo sprintf("<tr>
+    echo sprintf(
+        "<tr>
                       <td>%s</td>
                       <td>%s</td>
                       <td>%s</td>
@@ -27,8 +26,10 @@ foreach($users as $user) {
                            <a href='#'>Excluir</a>
                       </td>
                    </tr>",
-        $user->id, $user->name, $user->email);
-
+        $user->id,
+        $user->name,
+        $user->email
+    );
 }
 
 echo "</table>";
