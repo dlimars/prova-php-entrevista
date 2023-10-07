@@ -28,3 +28,36 @@ function getSession($name)
 {
 	return $_SESSION["sistema"][$name];
 }
+
+// função de redirect em JS
+function redirect($url)
+{
+	if ($url == 'volta') {
+		$url = $_SERVER["HTTP_REFERER"];
+	}
+	echo "
+			<script>
+				window.location = '" . $url . "';
+			</script>
+		";
+	die();
+}
+
+//retorna um campo atraves de uma query
+function getDbValue($sql)
+{
+	$conn = new PDO("sqlite:./database/db.sqlite") or print($conn->errorInfo());
+	foreach ($conn->query($sql) as $row) {
+		return $row[0];
+	}
+}
+
+// funcao para verificar permissao de arquivo
+function checkAccess()
+{
+	$access = getDbValue("SELECT id FROM cad_usuarios WHERE uniqid = '" . getSession('SYSGER') . "'");
+	if (empty($access)) {
+		setSession("SYSGER", "");
+		redirect('login.php');
+	}
+}
