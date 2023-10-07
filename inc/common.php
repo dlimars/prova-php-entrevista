@@ -16,6 +16,7 @@ session_start();
 require_once("connection.php");	// connection sqlite
 require_once("config.php");	// configuration
 require_once("class.form.php"); // class.form
+require_once("class.template.php"); // class.template
 
 date_default_timezone_set('America/Sao_Paulo');
 

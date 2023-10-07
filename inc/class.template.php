@@ -12,6 +12,7 @@ class Template
 
     private $setTittle;
     private $template;
+    private $content;
 
     public function __construct($tittle = NULL)
     {
@@ -46,6 +47,30 @@ class Template
     }
 
     /**
+     * addContent
+     * Inclusão de conteúdo no template utilizado
+     *
+     * @param string $content
+     * @param string $card
+     */
+    public function addContent(string $content, string $card = NULL)
+    {
+        if ($card == true) {
+            $this->content .= "
+                <div class='card'>
+                    <div class='card-body'>
+                        <div class='card-text'>
+                            " . $content . "
+                        </div>
+                    </div>
+                </div>
+                ";
+        } else {
+            $this->content .= $content;
+        }
+    }
+
+    /**
      * writeHtml
      * Imprimir HTML montado após conclusão das definições do template
      *
@@ -58,6 +83,7 @@ class Template
         $outHtml = $this->__replace($outHtml,               "[%icon%]",              META["icon"]);
         $outHtml = $this->__replace($outHtml,               "[%title%]",             TITTLE);
         $outHtml = $this->__replace($outHtml,               "[%title_page%]",        $this->setTittle);
+        $outHtml = $this->__replace($outHtml,               "[%include_content%]",   $this->content);
         echo $outHtml;
     }
 
