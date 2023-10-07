@@ -17,3 +17,14 @@ require_once("connection.php");	// connection sqlite
 require_once("config.php");	// configuration
 
 date_default_timezone_set('America/Sao_Paulo');
+
+// sessoes  setar e pegar
+function setSession($name, $value)
+{
+	$_SESSION["sistema"][$name] = $value;
+}
+
+function getSession($name)
+{
+	return $_SESSION["sistema"][$name];
+}
