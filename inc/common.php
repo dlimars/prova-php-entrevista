@@ -84,3 +84,36 @@ function slug($string)
 	return strtolower($string);
 }
 
+// funcao para setar erro
+function setAlert($mensagem, $tipo, $extend = NULL)
+{
+	setSession('title',	$mensagem);
+	setSession('icon',		$tipo);
+	setSession('extend', $extend);
+}
+
+//funcao para mostrar erro
+function getAlert()
+{
+	if (getSession('title') != "") {
+
+		$out = "
+			<script>
+				Swal.fire({
+					showConfirmButton: false,
+					timer: 2500,
+					title: '" . getSession('title') . "',
+					icon: '" . getSession('icon') . "',
+					" . getSession('extend') . "
+				});
+			</script>
+			";
+
+		setSession('title',		'');
+		setSession('icon',		'');
+		setSession('extend',	'');
+		return $out;
+	}
+}
+
+

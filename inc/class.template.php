@@ -13,6 +13,8 @@ class Template
     private $setTittle;
     private $template;
     private $content;
+    private $getCss;
+    private $getJs;
 
     public function __construct($tittle = NULL)
     {
@@ -28,12 +30,13 @@ class Template
      */
     public function setTemplate(string $template = "index")
     {
+        $templatePath = __DIR__ . '/templates/template.' . $template . '.php';
 
-        if (file_exists(__DIR__ . '/templates/template.' . $template . '.php')) {
-            $this->template = __DIR__ . '/templates/template.' . $template . '.php';
-            return;
+        if (file_exists($templatePath)) {
+            $this->template = $templatePath;
+        } else {
+            $this->template = __DIR__ . '/templates/template.index.php';
         }
-        $this->template = __DIR__ . '/templates/template.index.php';
     }
 
     private function getTemplate()
@@ -48,7 +51,7 @@ class Template
 
     /**
      * addContent
-     * Inclusão de conteúdo no template utilizado
+     * inclusao de conteudo no template utilizado
      *
      * @param string $content
      * @param string $card
@@ -71,6 +74,36 @@ class Template
     }
 
     /**
+     * addCss
+     * responsavel por registrar CSSs no template
+     *
+     * @param mixed $cssString
+     */
+    public function addCss(string $cssString)
+    {
+        if (file_exists($cssString)) {
+            $this->getCss .= "<link href='" . $cssString . "' rel='stylesheet' type='text/css'>";
+        } else {
+            $this->getCss .= "<s>" . $cssString . "</style>";
+        }
+    }
+
+    /**
+     * addJs
+     * responsavel por registrar JSs no template
+     *
+     * @param mixed $cssString
+     */
+    public function addJs(string $jsString)
+    {
+        if (file_exists($jsString)) {
+            $this->getJs .= "<link href='" . $jsString . "' rel='stylesheet' type='text/css'>";
+        } else {
+            $this->getJs .= "<script>" . $jsString . "</script>";
+        }
+    }
+
+    /**
      * writeHtml
      * Imprimir HTML montado após conclusão das definições do template
      *
@@ -83,7 +116,11 @@ class Template
         $outHtml = $this->__replace($outHtml,               "[%icon%]",              META["icon"]);
         $outHtml = $this->__replace($outHtml,               "[%title%]",             TITTLE);
         $outHtml = $this->__replace($outHtml,               "[%title_page%]",        $this->setTittle);
+        $outHtml = $this->__replace($outHtml,               "[%css%]",               $this->getCss);
         $outHtml = $this->__replace($outHtml,               "[%include_content%]",   $this->content);
+        $outHtml = $this->__replace($outHtml,               "[%js%]",                $this->getJs);
+        $outHtml = $this->__replace($outHtml,               "[%sweetalert%]",        getAlert());
+
         echo $outHtml;
     }
 

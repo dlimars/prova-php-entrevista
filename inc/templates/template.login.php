@@ -24,8 +24,9 @@
     <link rel="stylesheet" type="text/css" href="./app-assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./app-assets/css/bootstrap-extended.min.css">
     <link rel="stylesheet" type="text/css" href="./app-assets/css/app.css">
-
     <link rel="stylesheet" type="text/css" href="./app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/pages/authentication.css">
+
 
     <link rel="icon" href="[%icon%]" sizes="32x32">
     <link rel="apple-touch-icon" href="[%icon%]">
@@ -33,3 +34,31 @@
     <title>[%title%]</title>
     [%css%]
 </head>
+
+<body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static" data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-body">
+                <div class="auth-wrapper auth-basic px-2">
+                    <div class="auth-inner my-2">
+                        <div class='card mb-0' data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500">
+                            <div class='card-body'>
+                                <img src="./app-assets/images/logo.svg" class="card-img-top" alt="Logo [%title%]" title="[%title%]">
+                                [%include_content%]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app-assets/vendors/js/vendors.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./app-assets/js/app.js"></script>
+
+    [%js%]
+    [%sweetalert%]
+</body>
+
+</html>
