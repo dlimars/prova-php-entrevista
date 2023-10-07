@@ -14,5 +14,6 @@ session_start();
  * @subpackage third-itens
  */
 require_once("connection.php");	// connection sqlite
+require_once("config.php");	// configuration
 
 date_default_timezone_set('America/Sao_Paulo');
