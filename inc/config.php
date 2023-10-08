@@ -14,5 +14,5 @@ define("TITTLE", "VersoTech");
 define("META", [
     "description" => "Prova Técnica em PHP para VersoTech",
     "author" => "Pedro Azeredo",
-    "icon" => "./app-assets/images/favicon.ico",
+    "icon" => "./assets/img/favicon.ico",
 ]);
