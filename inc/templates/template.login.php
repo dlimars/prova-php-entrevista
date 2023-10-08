@@ -21,11 +21,10 @@
 
     <link href="[%icon%]" rel="[%icon%]">
 
-    <link rel="stylesheet" type="text/css" href="./app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="./app-assets/css/bootstrap-extended.min.css">
-    <link rel="stylesheet" type="text/css" href="./app-assets/css/app.css">
-    <link rel="stylesheet" type="text/css" href="./app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="./app-assets/css/pages/authentication.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap-extended.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="./assets/css/app.css">
 
 
     <link rel="icon" href="[%icon%]" sizes="32x32">
@@ -43,7 +42,7 @@
                     <div class="auth-inner my-2">
                         <div class='card mb-0' data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500">
                             <div class='card-body'>
-                                <img src="./app-assets/images/logo.svg" class="card-img-top" alt="Logo [%title%]" title="[%title%]">
+                                <img src="./assets/img/logo.svg" class="card-img-top" alt="Logo [%title%]" title="[%title%]">
                                 [%include_content%]
                             </div>
                         </div>
@@ -53,9 +52,8 @@
         </div>
     </div>
 
-    <script src="./app-assets/vendors/js/vendors.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./app-assets/js/app.js"></script>
+    <script src="./assets/js/app.js"></script>
 
     [%js%]
     [%sweetalert%]
