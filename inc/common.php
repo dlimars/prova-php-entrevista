@@ -18,6 +18,8 @@ require_once("config.php");	// configuration
 require_once("class.form.php"); // class.form
 require_once("class.template.php"); // class.template
 require_once("class.sqlQuery.php"); // class.sqlQuery
+require_once("class.table.php"); // class.table
+require_once("class.bootstrap.php"); // class.bootstrap
 
 date_default_timezone_set('America/Sao_Paulo');
 
