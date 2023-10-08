@@ -17,6 +17,7 @@ require_once("connection.php");	// connection sqlite
 require_once("config.php");	// configuration
 require_once("class.form.php"); // class.form
 require_once("class.template.php"); // class.template
+require_once("class.sqlQuery.php"); // class.sqlQuery
 
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -116,4 +117,28 @@ function getAlert()
 	}
 }
 
+// funcao para pegar parametros
+function getParam($name, $encriptado = false)
+{
+	if ($encriptado == false) {
+		if ($_POST[$name] != "") {
+			return $_POST[$name];
+		} else {
+			if ($_GET[$name] != "") {
+				return $_GET[$name];
+			}
+		}
+	} else {
+		$e = $_GET[$name];
+		$getIn = strrev(base64_decode(strrev($e)));
+		$explodeGet = explode("&", $getIn);
+		$out = array();
+		for ($x = 0; $x < COUNT($explodeGet); $x++) {
+			$explodeVal = explode("=", $explodeGet[$x]);
+			$out[$explodeVal[0]] = $explodeVal[1];
+		}
+
+		return $out;
+	}
+}
 
