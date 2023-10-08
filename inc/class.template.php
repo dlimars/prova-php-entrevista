@@ -120,9 +120,47 @@ class Template
         $outHtml = $this->__replace($outHtml,               "[%include_content%]",   $this->content);
         $outHtml = $this->__replace($outHtml,               "[%js%]",                $this->getJs);
         $outHtml = $this->__replace($outHtml,               "[%sweetalert%]",        getAlert());
+        $outHtml = $this->__replace($outHtml,               "[%include_sidebar%]",   $this->getSidebar());
 
         echo $outHtml;
     }
+
+    private function getSidebar(): string
+    {
+
+        $outHtml = "
+                <div class='main-menu-content'>
+                    <ul class='navigation navigation-main' id='main-menu-navigation' data-menu='menu-navigation'>
+                        <li class='nav-item'>
+                            <a class='d-flex align-items-center' href='index.php'>
+                                <i data-feather='home'></i>
+                                <span class='menu-item text-truncate' data-i18n='Home'>Home</span>
+                            </a>
+                        </li>
+                        <li class='nav-item'>
+                            <a class='d-flex align-items-center' href='users.php'>
+                                <i data-feather='users'></i>
+                                <span class='menu-item text-truncate' data-i18n='Usuários'>Usuários</span>
+                            </a>
+                        </li>
+                         <li class='nav-item'>
+                            <a class='d-flex align-items-center' href='colors.php'>
+                                <i data-feather='pen-tools'></i>
+                                <span class='menu-item text-truncate' data-i18n='Usuários'>Cores</span>
+                            </a>
+                        </li>
+                        <li class='nav-item'>
+                            <a class='d-flex align-items-center' href='loginSair.php'>
+                                <i data-feather='log-out'></i>
+                                <span class='menu-item text-truncate' data-i18n='Sair'>Sair</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            ";
+        return $outHtml;
+    }
+
 
     /**
      * __replace
