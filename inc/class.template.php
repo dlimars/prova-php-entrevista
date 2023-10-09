@@ -134,25 +134,25 @@ class Template
                     <ul class='navigation navigation-main' id='main-menu-navigation' data-menu='menu-navigation'>
                         <li class='nav-item'>
                             <a class='d-flex align-items-center' href='index.php'>
-                                <i data-feather='home'></i>
+                                <i class='fa-solid fa-house'></i>
                                 <span class='menu-item text-truncate' data-i18n='Home'>Home</span>
                             </a>
                         </li>
                         <li class='nav-item'>
                             <a class='d-flex align-items-center' href='users.php'>
-                                <i data-feather='users'></i>
+                                <i class='fa-solid fa-user-group'></i>
                                 <span class='menu-item text-truncate' data-i18n='Usuários'>Usuários</span>
                             </a>
                         </li>
                          <li class='nav-item'>
                             <a class='d-flex align-items-center' href='colors.php'>
-                                <i data-feather='pen-tools'></i>
+                                <i class='fa-solid fa-paint-roller'></i>
                                 <span class='menu-item text-truncate' data-i18n='Usuários'>Cores</span>
                             </a>
                         </li>
                         <li class='nav-item'>
                             <a class='d-flex align-items-center' href='loginSair.php'>
-                                <i data-feather='log-out'></i>
+                                <i class='fa-solid fa-arrow-right-from-bracket'></i>
                                 <span class='menu-item text-truncate' data-i18n='Sair'>Sair</span>
                             </a>
                         </li>
@@ -175,10 +175,7 @@ class Template
                 <div class='navbar-container d-flex content'>
                     <div class='bookmark-wrapper d-flex align-items-center'>
                         <ul class='nav navbar-nav d-xl-none'>
-                            <li class='nav-item'><a class='nav-link menu-toggle' href='#'><i class='ficon' data-feather='menu'></i></a></li>
-                        </ul>
-                        <ul class='nav navbar-nav'>
-                        <!--<li class='nav-item d-none d-lg-block'><a class='nav-link nav-link-style'><i class='ficon' data-feather='moon'></i></a></li>-->
+                            <li class='nav-item'><a class='nav-link menu-toggle' href='#'><i class='fa-solid fa-bars ficon'></i></a></li>
                         </ul>
                     </div>
                     <ul class='nav navbar-nav align-items-center ms-auto'>
@@ -190,9 +187,7 @@ class Template
                                 </div>
                             </a>
                             <div class='dropdown-menu dropdown-menu-end' aria-labelledby='dropdown-user'>
-                                <!-- <a class='dropdown-item' href='#'><i class='me-50' data-feather='user'></i> Perfil</a> -->
-                                <!-- <div class='dropdown-divider'></div> -->
-                                <a class='dropdown-item' href='loginSair.php'><i class='me-50' data-feather='log-out'></i> Sair</a>
+                                <a class='dropdown-item' href='loginSair.php'><i class='fa-solid fa-arrow-right-from-bracket me-50'></i> Sair</a>
                             </div>
                         </li>
                     </ul>
