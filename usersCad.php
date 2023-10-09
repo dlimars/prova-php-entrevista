@@ -12,18 +12,35 @@ if ($user_id) {
     $query->addcolumn("id");
     $query->addcolumn("name");
     $query->addcolumn("email");
+    $query->addcolumn("(SELECT id FROM colors WHERE id = (SELECT color_id FROM user_colors WHERE user_id = users.id )) AS color_id");
     $query->addWhere("id", "=", $user_id);
 
     foreach ($conn->query($query->getSQL()) as $row) {
         $f_nome = $row["name"];
         $f_email = $row["email"];
+        $color_id = $row['color_id'];
     }
+}
+
+
+$colors = new sqlQuery();
+$colors->addTable("colors");
+$colors->addcolumn("id");
+$colors->addcolumn("name");
+
+if ($conn->query($colors->getSQL()) && getDbValue($colors->getCount()) != 0) {
+    foreach ($conn->query($colors->getSQL()) as $row) {
+        $options_f_colors[] = array("id" => $row["id"], "name" => $row["name"]);
+    }
+} else {
+    $options_f_colors[] = array("id" => NULL, "name" => "Nenhum registro encontrado!");
 }
 
 $form = new Form("usersCadSave.php");
 $form->addField(hiddenField($user_id, "user_id"));
 $form->addField(textField("Nome", $f_nome, NUll, true));
 $form->addField(emailField("E-mail", $f_email, NUll, true, "^(?=.{1,256})(?=.{1,64}@)[^\s@]+@[^\s@]+\.[^\s@]{2,}$", NULL, "text-lowercase"));
+$form->addField(listField("Cor", $options_f_colors, $color_id));
 if (!empty($user_id)) {
     $form->addField('<button type="button" class="btn btn-outline-primary my-1 d-block" data-bs-toggle="modal" data-bs-target="#changePass">Alterar Senha</button>');
 } else {

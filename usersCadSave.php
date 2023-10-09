@@ -21,13 +21,14 @@ try {
     } else {
         $user_id                = getParam("user_id");
         $f_name                 = getParam("f_nome");
+        $color_id               = getParam("f_cor");
         $f_email                = strtolower(getParam("f_email"));
         $f_password             = getParam("f_senha");
         $f_confirmar_password   = getParam("f_confirmar_senha");
 
         $dados = array(
             "name"           => $f_name,
-            "email"          => $f_email
+            "email"          => $f_email,
         );
 
         validar_email($f_email);
@@ -83,6 +84,29 @@ try {
                 $actionText = "Cadastro efetuado com sucesso";
             }
         }
+
+        if (!empty($color_id)) {
+            $sql_delete_colors = "DELETE FROM user_colors WHERE user_id = :user_id";
+            $stmt = $conn->prepare($sql_delete_colors);
+            $stmt->execute(['user_id' => $lastInsertId]);
+
+            $dados_colors = array(
+                "user_id" => $lastInsertId,
+                "color_id" => $color_id,
+            );
+          
+            $sql_insert_colors = "
+                    INSERT INTO user_colors (
+                        user_id,
+                        color_id
+                    ) VALUES (
+                        :user_id,
+                        :color_id
+                    )";
+            $stmt = $conn->prepare($sql_insert_colors);
+            $stmt->execute($dados_colors);
+        }
+
         $tipo = 'success';
     }
 } catch (PDOException $e) {
