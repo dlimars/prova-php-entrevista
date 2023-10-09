@@ -244,7 +244,7 @@ function urlField(string $placeholder = NULL, string $value = NULL, string $name
  * @param string $js
  * @return string
  */
-function passField(string $placeholder = NULL, string $value = NULL, string $name = NULL,  bool $required = false, string $pattern = NULL, string $id = NULL, string $css = NULL, string $js = NULL): string
+function passField(string $placeholder = NULL, string $value = NULL, string $name = NULL, bool $required = false, bool $progress = false, string $pattern = NULL, string $id = NULL, string $css = NULL, string $js = NULL, bool $disabled = false): string
 {
     $slug = slug($placeholder);
     $_name  = $name == NULL ? "f_" . $slug : $name;
@@ -265,18 +265,22 @@ function passField(string $placeholder = NULL, string $value = NULL, string $nam
         $pattern = 'pattern="' . $pattern . '"';
     }
 
+    $disabledAttr = '';
+    if ($disabled) {
+        $disabledAttr = 'readonly';
+    }
+
     $out = "
-            <fieldset class='mb-1' id='js_" . $slug . "'>
-                " . $label . "
-                <div class='field position-relative'>
-                    <input type='password' class='form-control " . $css . "' name='" . $_name . "' id='" . $_id . "'" . $pattern . " placeholder='" . $placeholder . "' value='" . $value . "' " . $js . " " . $inputRequired . " autocomplete='new-password'/>
-                </div>
-            </fieldset>
-        ";
+        <fieldset class='mb-1' id='js_" . $slug . "'>
+            " . $label . "
+            <div class='field position-relative'>
+                <input type='password' class='form-control password-input " . $css . "' name='" . $_name . "' id='" . $_id . "'" . $pattern . " placeholder='" . $placeholder . "' value='" . $value . "' " . $js . " " . $inputRequired . " " . $disabledAttr . " autocomplete='new-password'/>
+            </div>
+        </fieldset>
+    ";
 
     return $out;
 }
-
 /**
  * submitBtn function
  *
