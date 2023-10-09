@@ -144,3 +144,34 @@ function getParam($name, $encriptado = false)
 	}
 }
 
+//funcao para validar senhas
+function validar_senha($f_senha, $f_confirmar_senha)
+{
+	if (isset($f_senha) && !empty($f_senha) && isset($f_confirmar_senha) && !empty($f_confirmar_senha)) {
+		if ($f_senha === $f_confirmar_senha) {
+			return md5($f_senha);
+		} else {
+			setAlert('Senhas não conferem!', 'error');
+			header(sprintf('location: %s', $_SERVER['HTTP_REFERER']));
+			exit;
+		}
+	} else {
+		setAlert('Campos obrigatórios não preenchidos!', 'error');
+		header(sprintf('location: %s', $_SERVER['HTTP_REFERER']));
+		exit;
+	}
+}
+
+// funcao para validar email
+function validar_email($email)
+{
+	if (!empty($email)) {
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			return true;
+		} else {
+			setAlert('Email inválido!', 'error');
+			header(sprintf('location: %s', $_SERVER['HTTP_REFERER']));
+			exit;
+		}
+	}
+}
