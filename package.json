@@ -37,6 +37,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "jquery": "^3.6.0",
-    "jquery-mask-plugin": "^1.14.16"
+    "jquery-mask-plugin": "^1.14.16",
+    "@fortawesome/fontawesome-free": "^6.1.1"
   }
 }

@@ -1,4 +1,5 @@
 const mix = require("laravel-mix");
+const fs = require('fs')
 
 // directory to check if exists
 const dir = "./assets";
@@ -34,3 +35,9 @@ mix.sass("resources/scss/app.scss", dirRaiz + "/css").options({
  * Arquivos de Imagens
  */
 mix.copyDirectory("resources/img", dirRaiz + "/img");
+
+/**
+ *
+ * Arquivos de fontes
+ */
+mix.copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts/', dirRaiz + '/fonts')
