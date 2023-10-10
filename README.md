@@ -36,3 +36,7 @@ Este projeto conta com uma base sqlite com alguns registros já inseridos. Para 
 
 ##### Boa Sorte
 Use seu conhecimento, consulte a documentação e o google, caso ainda houver dúvidas, nos pergunte :D. Boa sorte!
+
+## Login de Primeiro Acesso
+User: foo@bar.com
+Pass: 123456

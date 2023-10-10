@@ -1,0 +1,39 @@
+// FONTS PATH
+$fa-font-path: '../fonts';
+
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+// containers size
+$container-max-widths: (
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  xxl: $xxl
+);
+
+$grid-breakpoints: (
+  xs: $xs,
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  xxl: $xxl
+);
+
+/*colors*/
+// $theme-colors: (
+//   'primary': $primary,
+//   'secondary': $secondary,
+//   'success': $success,
+//   'info': $info,
+//   'warning': $warning,
+//   'danger': $danger,
+//   'light': $light,
+//   'dark': $dark
+// );

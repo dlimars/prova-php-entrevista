@@ -1,0 +1,44 @@
+{
+  "private": true,
+  "name": "prova-php-entrevista",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.5",
+    "axios": "^0.21",
+    "browser-sync": "^2.26.14",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "laravel-mix": "^6.0.6",
+    "lodash": "^4.17.19",
+    "postcss": "^8.2.1",
+    "postcss-import": "^12.0.1",
+    "resolve-url-loader": "^3.1.2",
+    "sass": "^1.32.8",
+    "sass-loader": "^8.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PedroAzeredo-WebCoder/prova-php-entrevista.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PedroAzeredo-WebCoder/prova-php-entrevista/issues"
+  },
+  "homepage": "https://github.com/PedroAzeredo-WebCoder/prova-php-entrevista#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "^5.1.0",
+    "jquery": "^3.6.0",
+    "jquery-mask-plugin": "^1.14.16",
+    "@fortawesome/fontawesome-free": "^6.1.1"
+  }
+}
