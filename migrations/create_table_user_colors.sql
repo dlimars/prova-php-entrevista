@@ -1,4 +1,4 @@
-create table user_colors(
-    user_id INTEGER NOT NULL,
-    color_id INTEGER NOT NULL
-)
+CREATE TABLE [user_colors] ( 
+  [user_id] INT NOT NULL,
+  [color_id] INT NOT NULL
+);
