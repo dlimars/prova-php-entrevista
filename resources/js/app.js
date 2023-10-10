@@ -1,6 +1,7 @@
 require('jquery')
 require('./vendor.js')
 require('./menu.js')
+require('bootstrap');
 require('@fortawesome/fontawesome-free')
 require('jquery-mask-plugin/dist/jquery.mask.min')
 require('./partials/masks')
