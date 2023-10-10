@@ -31,6 +31,23 @@
     <link rel="apple-touch-icon" href="[%icon%]">
 
     <title>[%title%]</title>
+
+    <style>
+        .btn-primary{
+        background-color: [%cor%];
+        border-color: [%cor%];
+        }
+
+        .btn-outline-primary:hover{
+            background-color: [%cor%];
+            border-color: [%cor%];
+        }
+
+         .btn-outline-primary{
+            color: [%cor%];
+            border-color: [%cor%];
+        }
+    </style>
     [%css%]
 </head>
 

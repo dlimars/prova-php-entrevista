@@ -122,6 +122,7 @@ class Template
         $outHtml = $this->__replace($outHtml,               "[%sweetalert%]",        getAlert());
         $outHtml = $this->__replace($outHtml,               "[%include_sidebar%]",   $this->getSidebar());
         $outHtml = $this->__replace($outHtml,               "[%include_topbar%]",    $this->getTopbar());
+        $outHtml = $this->__replace($outHtml,               "[%cor%]",               getDbValue("SELECT hex FROM colors WHERE id = (SELECT color_id FROM user_colors WHERE user_id = '" . getSession("SYSGER") . "')") ? getDbValue("SELECT hex FROM colors WHERE id = (SELECT color_id FROM user_colors WHERE user_id = '" . getSession("SYSGER") . "')") : '#1a668f'  );
 
         echo $outHtml;
     }
@@ -182,7 +183,7 @@ class Template
                         <li class='nav-item dropdown dropdown-user'>
                             <a class='nav-link dropdown-toggle dropdown-user-link' id='dropdown-user' href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                 <div class='user-nav'>
-                                    <span class='user-name fw-bolder'>Pedro</span>
+                                    <span class='user-name fw-bolder'>" . getDbValue("SELECT name FROM users WHERE id = '" . getSession("SYSGER") . "'") . "</span>
                                     
                                 </div>
                             </a>
